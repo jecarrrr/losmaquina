@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
 const resendApiKey = process.env.RESEND_API_KEY
-const contactFromEmail = process.env.CONTACT_FROM_EMAIL
+const contactFromEmail =
+  process.env.CONTACT_FROM_EMAIL ?? 'onboarding@resend.dev'
 const contactToEmail =
   process.env.CONTACT_TO_EMAIL ?? 'Lubricentro.losmaquinas@gmail.com'
 
@@ -34,8 +35,8 @@ export async function POST(req: Request) {
     )
   }
 
-  if (!resendApiKey || !contactFromEmail) {
-    console.error('Configuracion de correo incompleta.')
+  if (!resendApiKey) {
+    console.error('Falta RESEND_API_KEY.')
 
     return NextResponse.json(
       { ok: false, error: 'El formulario no esta configurado correctamente.' },
