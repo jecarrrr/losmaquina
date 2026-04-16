@@ -20,13 +20,13 @@ const contactoItems = [
   {
     icon: 'Horario',
     titulo: 'Horario',
-    info: 'Lun-Vie: 9:00 - 18:30',
-    sub: 'Sab: 9:00 - 13:00',
+    info: '09:00 - 13:00',
+    sub: '14:30 - 18:30',
   },
   {
     icon: 'Email',
     titulo: 'Email',
-    info: 'Lubricentro.losmaquinas@gmail.com',
+    info: 'lubricentro.losmaquinas@gmail.com',
     sub: 'Respondemos a la brevedad',
     link: 'mailto:Lubricentro.losmaquinas@gmail.com',
   },

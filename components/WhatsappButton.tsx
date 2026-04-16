@@ -2,7 +2,7 @@
 
 export default function WhatsappButton() {
   const telefono = process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? '56965016699'
-  const mensaje = encodeURIComponent('Hola, me gustaria consultar sobre mi vehiculo.')
+  const mensaje = encodeURIComponent('Hola.')
   const url = `https://wa.me/${telefono}?text=${mensaje}`
 
   return (

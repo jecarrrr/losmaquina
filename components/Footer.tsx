@@ -23,10 +23,10 @@ const datosContacto = [
   },
   { texto: '+56 9 65016699', link: 'tel:+56965016699' },
   {
-    texto: 'Lubricentro.losmaquinas@gmail.com',
-    link: 'mailto:Lubricentro.losmaquinas@gmail.com',
+    texto: 'lubricentro.losmaquinas@gmail.com',
+    link: 'mailto:lubricentro.losmaquinas@gmail.com',
   },
-  { texto: 'Lun-Vie: 9:00-18:30 | Sab: 9:00-14:00' },
+  { texto: 'Horario: 09:00-13:00 | 14:30-18:30' },
 ]
 
 export default function Footer() {
