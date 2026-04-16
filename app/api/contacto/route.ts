@@ -1,72 +1,31 @@
-import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { NextResponse } from 'next/server'
 
-const resendApiKey = process.env.RESEND_API_KEY
-const contactFromEmail =
-  process.env.CONTACT_FROM_EMAIL ?? 'onboarding@resend.dev'
-const contactToEmail =
-  process.env.CONTACT_TO_EMAIL ?? 'Lubricentro.losmaquinas@gmail.com'
-
-function escapeHtml(value: string) {
-  return value
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#39;')
-}
-
-function getField(value: unknown) {
-  return typeof value === 'string' ? value.trim() : ''
-}
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: Request) {
-  const body = await req.json()
+  const { nombre, telefono, vehiculo, mensaje } = await req.json()
 
-  const nombre = getField(body?.nombre)
-  const telefono = getField(body?.telefono)
-  const vehiculo = getField(body?.vehiculo)
-  const mensaje = getField(body?.mensaje)
-
-  if (!nombre || !telefono || !vehiculo || !mensaje) {
-    return NextResponse.json(
-      { ok: false, error: 'Todos los campos son obligatorios.' },
-      { status: 400 }
-    )
-  }
-
-  if (!resendApiKey) {
-    console.error('Falta RESEND_API_KEY.')
-
-    return NextResponse.json(
-      { ok: false, error: 'El formulario no esta configurado correctamente.' },
-      { status: 500 }
-    )
-  }
-
-  const resend = new Resend(resendApiKey)
+  console.log('📧 Datos recibidos:', { nombre, telefono, vehiculo, mensaje })
 
   try {
-    await resend.emails.send({
-      from: contactFromEmail,
-      to: contactToEmail,
-      subject: `Nueva consulta de ${nombre}`,
+    const result = await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: 'lubricentro.losmaquinas@gmail.com',
+      subject: `Los Maquinas`,
       html: `
-        <h2>Nueva consulta desde la web</h2>
-        <p><strong>Nombre:</strong> ${escapeHtml(nombre)}</p>
-        <p><strong>Telefono:</strong> ${escapeHtml(telefono)}</p>
-        <p><strong>Vehiculo:</strong> ${escapeHtml(vehiculo)}</p>
-        <p><strong>Mensaje:</strong> ${escapeHtml(mensaje)}</p>
+        <h2>Esta persona se quiere contactar contigo</h2>
+        <p><strong>Nombre:</strong> ${nombre}</p>
+        <p><strong>Teléfono:</strong> ${telefono}</p>
+        <p><strong>Vehículo:</strong> ${vehiculo}</p>
+        <p><strong>Mensaje:</strong> ${mensaje}</p>
       `,
     })
 
+    console.log('✅ Resultado:', result)
     return NextResponse.json({ ok: true })
   } catch (error) {
-    console.error('Error al enviar correo de contacto.', error)
-
-    return NextResponse.json(
-      { ok: false, error: 'No se pudo enviar el mensaje.' },
-      { status: 500 }
-    )
+    console.log('❌ Error:', error)
+    return NextResponse.json({ ok: false, error }, { status: 500 })
   }
 }
