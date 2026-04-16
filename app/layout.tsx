@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: 'Los Maquinas | Taller Mecanico en Carahue',
   description:
     'Taller mecanico de confianza en Carahue. Diagnostico, reparacion y mantenimiento de vehiculos con equipamiento profesional.',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
