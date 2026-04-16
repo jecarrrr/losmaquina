@@ -44,3 +44,4 @@ npm run start
 - Verificar que `CONTACT_FROM_EMAIL` este autenticado en Resend.
 - Probar el formulario `/api/contacto` en el entorno desplegado.
 - Revisar enlaces de telefono, WhatsApp, Maps y correo.
+- Confirmar que Vercel este desplegando el ultimo commit de `main`.
