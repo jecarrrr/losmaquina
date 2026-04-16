@@ -46,6 +46,12 @@ const campos = [
     placeholder: 'Ej: Toyota Corolla 2018',
     type: 'text',
   },
+  {
+    key: 'patente',
+    label: 'Patente',
+    placeholder: 'Ej: ABCD12',
+    type: 'text',
+  },
 ] as const
 
 export default function Contacto() {
@@ -53,6 +59,7 @@ export default function Contacto() {
     nombre: '',
     telefono: '',
     vehiculo: '',
+    patente: '',
     mensaje: '',
   })
   const [enviado, setEnviado] = useState(false)
@@ -72,7 +79,7 @@ export default function Contacto() {
       if (res.ok) {
         setEnviado(true)
         setTimeout(() => setEnviado(false), 4000)
-        setForm({ nombre: '', telefono: '', vehiculo: '', mensaje: '' })
+        setForm({ nombre: '', telefono: '', vehiculo: '', patente: '', mensaje: '' })
       } else {
         alert('Error al enviar. Intenta de nuevo.')
       }
