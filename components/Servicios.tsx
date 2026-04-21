@@ -1,77 +1,79 @@
 'use client'
 
+import Image from 'next/image'
+
 const servicios = [
   {
-    icono: 'DX',
-    titulo: 'Diagnostico Computarizado',
-    desc: 'Lectura de codigos OBD-II, analisis de sensores y deteccion precisa de fallas electronicas en todo tipo de vehiculos.',
-    detalle: 'Scanner profesional',
+    titulo: 'Diagnostico computarizado',
+    descripcion:
+      'Lectura de codigos OBD-II, analisis de sensores y deteccion precisa de fallas electronicas en todo tipo de vehiculos.',
+    imagen: '/servicios/diagnostico_computarizado.png',
   },
   {
-    icono: 'MT',
-    titulo: 'Motor y Transmision',
-    desc: 'Reparacion completa de motores a gasolina y diesel. Caja de cambios manual y automatica con garantia por escrito.',
-    detalle: 'Toda marca y modelo',
+    titulo: 'Motor y transmision',
+    descripcion:
+      'Reparacion completa de motores a gasolina y diesel. Caja de cambios manual y automatica con garantia por escrito.',
+    imagen: '/servicios/motor_y_transmision.png',
   },
   {
-    icono: 'FS',
-    titulo: 'Frenos y Suspension',
-    desc: 'Cambio de pastillas, discos y amortiguadores. Seguridad garantizada en cada trabajo.',
-    detalle: 'Balanceo incluido',
+    titulo: 'Frenos y suspension',
+    descripcion:
+      'Cambio de pastillas, discos y amortiguadores. Seguridad garantizada en cada trabajo.',
+    imagen: '/servicios/frenos_y_suspension.png',
   },
   {
-    icono: 'TT',
-    titulo: 'Tren Delantero y Trasero',
-    desc: 'Revision y reparacion de brazos, rotulas, bujes, rodamientos y geometria completa del tren delantero y trasero.',
-    detalle: 'Revision completa',
+    titulo: 'Tren delantero y trasero',
+    descripcion:
+      'Revision y reparacion de brazos, rotulas, bujes, rodamientos y geometria completa del tren delantero y trasero.',
+    imagen: '/servicios/tren_delantero_y_trasero.png',
   },
   {
-    icono: 'SE',
-    titulo: 'Sistema Electrico',
-    desc: 'Diagnostico y reparacion electrica avanzada. Revision de bateria, alternador, partidas y sistema de luces.',
-    detalle: 'Instalaciones certificadas',
+    titulo: 'Sistema electrico',
+    descripcion:
+      'Diagnostico y reparacion electrica avanzada. Revision de bateria, alternador, partidas y sistema de luces.',
+    imagen: '/servicios/sistema_electrico.png',
   },
   {
-    icono: 'MP',
-    titulo: 'Mantenciones Preventivas',
-    desc: 'Cambio de aceite, filtros, correa de distribucion, bujias y revision tecnica integral con protocolo de 50 puntos.',
-    detalle: 'Con sticker de mantencion',
+    titulo: 'Mantenciones preventivas',
+    descripcion:
+      'Cambio de aceite, filtros, correa de distribucion, bujias y revision tecnica integral con protocolo de 50 puntos.',
+    imagen: '/servicios/mantenciones_preventivas.png',
   },
   {
-    icono: 'AC',
-    titulo: 'Alineacion Computarizada',
-    desc: 'Alineacion de precision con equipos de ultima generacion. Corregimos geometria para mayor seguridad y rendimiento de los neumaticos.',
-    detalle: '2 alineadores disponibles',
+    titulo: 'Alineacion computarizada',
+    descripcion:
+      'Alineacion de precision con equipos de ultima generacion. Corregimos geometria para mayor seguridad y rendimiento de los neumaticos.',
+    imagen: '/servicios/alineacion_computarizada.png',
   },
   {
-    icono: 'BR',
-    titulo: 'Balanceo de Ruedas',
-    desc: 'Balanceo dinamico y estatico para eliminar vibraciones, alargar la vida util de los neumaticos y mejorar el confort de manejo.',
-    detalle: 'Equipamiento profesional',
+    titulo: 'Balanceo de ruedas',
+    descripcion:
+      'Balanceo dinamico y estatico para eliminar vibraciones, alargar la vida util de los neumaticos y mejorar el confort de manejo.',
+    imagen: '/servicios/balanceo_de_ruedas.png',
   },
   {
-    icono: 'LI',
-    titulo: 'Limpieza de Inyectores',
-    desc: 'Limpieza ultrasonica y en banco de inyectores. Recupera el rendimiento del motor, reduce el consumo de combustible y emisiones.',
-    detalle: 'Diesel y gasolina',
+    titulo: 'Limpieza de inyectores',
+    descripcion:
+      'Limpieza ultrasonica y en banco de inyectores. Recupera el rendimiento del motor, reduce el consumo de combustible y emisiones.',
+    imagen: '/servicios/limpieza_de_inyectores.png',
   },
   {
-    icono: 'CE',
-    titulo: 'Cambio Disco de Embrague',
-    desc: 'Reemplazo de disco, plato y collarin de embrague con piezas de calidad. Aplicamos para vehiculos manuales de toda marca y modelo.',
-    detalle: 'Garantia por escrito',
+    titulo: 'Cambio disco de embrague',
+    descripcion:
+      'Reemplazo de disco, plato y collarin de embrague con piezas de calidad. Aplicamos para vehiculos manuales de toda marca y modelo.',
+    imagen: '/servicios/cambio_disco_de_embrague.png',
   },
   {
-    icono: 'MC',
-    titulo: 'Medicion de Compresion',
-    desc: 'Diagnostico del estado interno del motor mediante medicion de compresion en cada cilindro. Detectamos desgaste antes de que se agrave.',
-    detalle: 'Diagnostico preventivo',
+    titulo: 'Medicion de compresion',
+    descripcion:
+      'Diagnostico del estado interno del motor mediante medicion de compresion en cada cilindro. Detectamos desgaste antes de que se agrave.',
+    imagen: '/servicios/medicion_de_compresion.png',
   },
   {
-    icono: 'BN',
-    titulo: 'Bateria y Neumaticos',
-    desc: 'Venta, instalacion y prueba de baterias. Montaje, desmontaje y revision de neumaticos con maquina de montaje profesional.',
-    detalle: 'Montaje en sitio',
+    titulo: 'Bateria y neumaticos',
+    descripcion:
+      'Venta, instalacion y prueba de baterias. Montaje, desmontaje y revision de neumaticos con maquina de montaje profesional.',
+    imagen: '/servicios/bateria_y_neumaticos.png',
   },
 ]
 
@@ -80,24 +82,27 @@ export default function Servicios() {
     <section
       id="servicios"
       style={{
-        background: '#050F28',
-        padding: '6rem 1.5rem',
+        background: '#061329',
+        padding: '6rem 1rem',
+        borderTop: '1px solid #0D2045',
+        borderBottom: '1px solid #0D2045',
       }}
     >
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ marginBottom: '4rem' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+        <div style={{ marginBottom: '2.5rem' }}>
           <div
             style={{
               fontFamily: "'Barlow Condensed', sans-serif",
               color: '#D32F2F',
-              fontSize: '0.8rem',
+              fontSize: '0.85rem',
               letterSpacing: '4px',
               textTransform: 'uppercase',
               marginBottom: '0.75rem',
             }}
           >
-            Lo que hacemos
+            Nuestros servicios
           </div>
+
           <h2
             style={{
               fontFamily: "'Bebas Neue', sans-serif",
@@ -105,175 +110,152 @@ export default function Servicios() {
               letterSpacing: '3px',
               color: '#F5F5F0',
               lineHeight: 1,
+              marginBottom: '0.8rem',
             }}
           >
-            NUESTROS SERVICIOS
+            SERVICIOS ESPECIALIZADOS
           </h2>
-          <div style={{ height: '3px', width: '80px', background: '#D32F2F', marginTop: '1rem' }} />
-        </div>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '1px',
-            background: '#0D2045',
-            border: '1px solid #0D2045',
-          }}
-        >
-          {servicios.map((servicio, i) => (
-            <div
-              key={servicio.titulo}
-              style={{
-                background: '#0A1A3A',
-                padding: '2rem 1.5rem',
-                position: 'relative',
-                cursor: 'default',
-                transition: 'background 0.3s',
-                overflow: 'hidden',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = '#0F2248'
-                const accent = e.currentTarget.querySelector('.accent-line') as HTMLElement
-                if (accent) accent.style.width = '100%'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = '#0A1A3A'
-                const accent = e.currentTarget.querySelector('.accent-line') as HTMLElement
-                if (accent) accent.style.width = '0%'
-              }}
-            >
-              <div
-                className="accent-line"
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  height: '2px',
-                  width: '0%',
-                  background: '#D32F2F',
-                  transition: 'width 0.4s ease',
-                }}
-              />
-
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '1.5rem',
-                  right: '1.5rem',
-                  fontFamily: "'Bebas Neue', sans-serif",
-                  fontSize: '3rem',
-                  color: '#0D2045',
-                  lineHeight: 1,
-                }}
-              >
-                {String(i + 1).padStart(2, '0')}
-              </div>
-
-              <div
-                style={{
-                  width: '52px',
-                  height: '52px',
-                  marginBottom: '1rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  border: '1px solid rgba(211,47,47,0.3)',
-                  color: '#D32F2F',
-                  fontFamily: "'Bebas Neue', sans-serif",
-                  fontSize: '1.15rem',
-                  letterSpacing: '1px',
-                }}
-              >
-                {servicio.icono}
-              </div>
-              <h3
-                style={{
-                  fontFamily: "'Bebas Neue', sans-serif",
-                  fontSize: '1.4rem',
-                  letterSpacing: '2px',
-                  color: '#F5F5F0',
-                  marginBottom: '0.75rem',
-                  paddingRight: '2.5rem',
-                }}
-              >
-                {servicio.titulo}
-              </h3>
-              <p
-                style={{
-                  color: '#C8D4E8',
-                  fontSize: '0.9rem',
-                  lineHeight: 1.7,
-                  fontWeight: 300,
-                  marginBottom: '1.5rem',
-                }}
-              >
-                {servicio.desc}
-              </p>
-              <div
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  background: 'rgba(211,47,47,0.1)',
-                  border: '1px solid rgba(211,47,47,0.3)',
-                  padding: '4px 12px',
-                  fontSize: '0.75rem',
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  letterSpacing: '1.5px',
-                  textTransform: 'uppercase',
-                  color: '#D32F2F',
-                }}
-              >
-                OK {servicio.detalle}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div
-          style={{
-            textAlign: 'center',
-            marginTop: '3rem',
-            padding: '2rem 1.5rem',
-            background: 'linear-gradient(135deg, #0A1A3A, #0D2045)',
-            border: '1px solid #0D2045',
-          }}
-        >
           <p
             style={{
               color: '#C8D4E8',
-              fontFamily: "'Barlow', sans-serif",
-              marginBottom: '1.5rem',
-              fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
-            }}
-          >
-            No encuentras lo que necesitas? Contactanos y revisamos tu caso.
-          </p>
-          <a
-            href="#contacto"
-            style={{
-              background: '#D32F2F',
-              color: 'white',
-              padding: '14px 32px',
-              textDecoration: 'none',
-              fontFamily: "'Barlow Condensed', sans-serif",
+              maxWidth: '850px',
+              lineHeight: 1.7,
               fontSize: '1rem',
-              letterSpacing: '3px',
-              textTransform: 'uppercase',
-              fontWeight: 700,
-              clipPath: 'polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)',
-              display: 'inline-block',
             }}
           >
-            Consultar Ahora
-          </a>
+            Contamos con equipamiento profesional y experiencia en diagnostico, reparacion,
+            mantencion y servicios especializados para entregar un trabajo confiable y de calidad.
+          </p>
+        </div>
+
+        <div className="servicios-grid">
+          {servicios.map((servicio) => (
+            <article key={servicio.titulo} className="servicio-card">
+              <div className="servicio-imagen-wrap">
+                <Image
+                  src={servicio.imagen}
+                  alt={servicio.titulo}
+                  width={900}
+                  height={1200}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 25vw"
+                  className="servicio-imagen"
+                />
+              </div>
+
+              <div className="servicio-contenido">
+                <h3 className="servicio-titulo">{servicio.titulo}</h3>
+                <p className="servicio-descripcion">{servicio.descripcion}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
 
       <style>{`
-        @media (max-width: 640px) {
-          #servicios .accent-line { display: none; }
+        .servicios-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 1rem;
+          align-items: stretch;
+        }
+
+        .servicio-card {
+          background: linear-gradient(180deg, #0A1A3A 0%, #091A39 100%);
+          border: 1px solid #102A57;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+
+        .servicio-imagen-wrap {
+          background: #081427;
+          border-bottom: 1px solid #102A57;
+          padding: 0.75rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 320px;
+          max-height: 320px;
+          overflow: hidden;
+        }
+
+        .servicio-imagen {
+          width: 100%;
+          height: 100%;
+          max-height: 290px;
+          object-fit: contain;
+          display: block;
+          transition: transform 0.35s ease;
+        }
+
+        .servicio-card:hover .servicio-imagen {
+          transform: scale(1.02);
+        }
+
+        .servicio-contenido {
+          padding: 1.35rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.9rem;
+          min-height: 220px;
+        }
+
+        .servicio-titulo {
+          margin: 0;
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+          letter-spacing: 2px;
+          color: #F5F5F0;
+          line-height: 1.1;
+        }
+
+        .servicio-descripcion {
+          margin: 0;
+          color: #C8D4E8;
+          font-size: 1rem;
+          line-height: 1.75;
+        }
+
+        @media (max-width: 1400px) {
+          .servicios-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+          }
+        }
+
+        @media (max-width: 1100px) {
+          .servicios-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .servicio-imagen-wrap {
+            min-height: 300px;
+            max-height: 300px;
+          }
+
+          .servicio-imagen {
+            max-height: 270px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .servicios-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .servicio-imagen-wrap {
+            min-height: 340px;
+            max-height: 340px;
+          }
+
+          .servicio-imagen {
+            max-height: 310px;
+          }
+
+          .servicio-contenido {
+            min-height: auto;
+          }
         }
       `}</style>
     </section>

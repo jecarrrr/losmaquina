@@ -155,11 +155,11 @@ export default function Galeria() {
         </div>
 
         <div className="fotos-grid" style={{ marginBottom: '4rem' }}>
-          {fotosGrid.map((foto) => (
+          {fotosGrid.map((foto, index) => (
             <div
               key={foto.src}
               onClick={() => setFotoActiva(foto.src)}
-              className="foto-item"
+              className={`foto-item ${index === fotosGrid.length - 1 ? 'foto-item-last' : ''}`}
               onMouseEnter={(e) => {
                 const img = e.currentTarget.querySelector('img') as HTMLImageElement
                 const overlay = e.currentTarget.querySelector('.overlay') as HTMLElement
@@ -343,31 +343,53 @@ export default function Galeria() {
           grid-template-columns: repeat(4, 1fr);
           gap: 2px;
         }
+
         .foto-item {
           height: 220px;
           overflow: hidden;
           cursor: pointer;
           position: relative;
         }
+
+        .foto-item-last {
+          grid-column: 2 / 4;
+        }
+
         @media (max-width: 1024px) {
           .fotos-grid {
             grid-template-columns: repeat(2, 1fr);
           }
+
+          .foto-item-last {
+            grid-column: auto;
+          }
         }
+
         @media (max-width: 768px) {
           .fotos-grid {
             grid-template-columns: 1fr 1fr;
           }
+
           .foto-item {
             height: 180px;
           }
+
+          .foto-item-last {
+            grid-column: auto;
+          }
         }
+
         @media (max-width: 480px) {
           .fotos-grid {
             grid-template-columns: 1fr;
           }
+
           .foto-item {
             height: 200px;
+          }
+
+          .foto-item-last {
+            grid-column: auto;
           }
         }
       `}</style>

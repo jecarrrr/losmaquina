@@ -76,7 +76,7 @@ export default function Nosotros() {
                 marginBottom: '1.5rem',
               }}
             >
-              Somos un taller familiar fundado en Carahue con mas de dos decadas sirviendo
+              Somos un taller familiar fundado en Carahue con mas de 5 años sirviendo
               a la comunidad. Comenzamos con un solo foso y una llave inglesa. Hoy contamos
               con equipos de diagnostico de ultima generacion y un equipo tecnico con
               experiencia comprobada.

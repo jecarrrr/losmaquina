@@ -88,7 +88,7 @@ export default function Footer() {
                 maxWidth: '220px',
               }}
             >
-              Taller mecanico de confianza en Carahue. Mas de 20 anos al servicio de tu
+              Taller mecanico de confianza en Carahue. Mas de 5 años al servicio de tu
               vehiculo.
             </p>
           </div>

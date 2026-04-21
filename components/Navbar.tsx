@@ -8,12 +8,13 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60)
+    const handleScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const links = [
+    { label: 'Ofertas', href: '#ofertas' },
     { label: 'Servicios', href: '#servicios' },
     { label: 'Nosotros', href: '#nosotros' },
     { label: 'Galeria', href: '#galeria' },
@@ -28,10 +29,11 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 1000,
-        background: scrolled ? 'rgba(5,15,40,0.97)' : 'transparent',
-        borderBottom: scrolled ? '1px solid #D32F2F' : '1px solid transparent',
+        background: scrolled ? 'rgba(5,15,40,0.97)' : 'rgba(5,15,40,0.88)',
+        borderBottom: scrolled ? '1px solid #D32F2F' : '1px solid rgba(255,255,255,0.08)',
         transition: 'all 0.3s ease',
         padding: '0 1rem',
+        backdropFilter: 'blur(8px)',
       }}
     >
       <div
@@ -41,11 +43,29 @@ export default function Navbar() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: '70px',
+          minHeight: '78px',
+          gap: '1rem',
         }}
       >
-        <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div style={{ position: 'relative', width: '52px', height: '52px', flexShrink: 0 }}>
+        <a
+          href="#"
+          style={{
+            textDecoration: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            minWidth: 0,
+            flex: 1,
+          }}
+        >
+          <div
+            style={{
+              position: 'relative',
+              width: '52px',
+              height: '52px',
+              flexShrink: 0,
+            }}
+          >
             <Image
               src="/logo.png"
               alt="Serviteca Los Maquinas SYM"
@@ -58,13 +78,23 @@ export default function Navbar() {
               }}
             />
           </div>
-          <div className="logo-text" style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
+
+          <div
+            className="logo-text"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              lineHeight: 1,
+              minWidth: 0,
+            }}
+          >
             <span
               style={{
                 fontFamily: "'Bebas Neue', sans-serif",
                 fontSize: '1.2rem',
                 letterSpacing: '3px',
                 color: '#F5F5F0',
+                whiteSpace: 'nowrap',
               }}
             >
               SERVITECA
@@ -75,6 +105,7 @@ export default function Navbar() {
                 fontSize: '1rem',
                 letterSpacing: '2px',
                 color: '#D32F2F',
+                whiteSpace: 'nowrap',
               }}
             >
               LOS MAQUINAS SYM
@@ -83,13 +114,15 @@ export default function Navbar() {
         </a>
 
         <ul
+          className="desktop-nav"
           style={{
             display: 'flex',
             listStyle: 'none',
-            gap: '2.5rem',
+            gap: '2.2rem',
             alignItems: 'center',
+            margin: 0,
+            padding: 0,
           }}
-          className="desktop-nav"
         >
           {links.map((link) => (
             <li key={link.href}>
@@ -117,17 +150,19 @@ export default function Navbar() {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Abrir menu"
+          className="hamburger"
           style={{
             display: 'none',
             background: 'none',
             border: 'none',
             cursor: 'pointer',
             flexDirection: 'column',
+            justifyContent: 'center',
             gap: '5px',
-            padding: '10px',
-            margin: '-10px',
+            padding: '8px',
+            margin: 0,
+            flexShrink: 0,
           }}
-          className="hamburger"
         >
           {[0, 1, 2].map((i) => (
             <span
@@ -148,7 +183,7 @@ export default function Navbar() {
           style={{
             background: 'rgba(5,15,40,0.98)',
             borderTop: '1px solid #D32F2F',
-            padding: '0.5rem 1.5rem 1.5rem',
+            padding: '0.5rem 1rem 1.25rem',
           }}
         >
           {links.map((link) => (
@@ -161,7 +196,7 @@ export default function Navbar() {
                 color: '#C8D4E8',
                 textDecoration: 'none',
                 fontFamily: "'Barlow Condensed', sans-serif",
-                fontSize: '1.2rem',
+                fontSize: '1.05rem',
                 letterSpacing: '2px',
                 textTransform: 'uppercase',
                 padding: '14px 0',
@@ -177,9 +212,35 @@ export default function Navbar() {
 
       <style>{`
         @media (max-width: 768px) {
-          .desktop-nav { display: none !important; }
-          .hamburger { display: flex !important; }
-          .logo-text { display: none !important; }
+          .desktop-nav {
+            display: none !important;
+          }
+
+          .hamburger {
+            display: flex !important;
+          }
+
+          .logo-text span:first-child {
+            font-size: 1rem !important;
+            letter-spacing: 2px !important;
+          }
+
+          .logo-text span:last-child {
+            font-size: 0.82rem !important;
+            letter-spacing: 1.2px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .logo-text span:first-child {
+            font-size: 0.92rem !important;
+            letter-spacing: 1.5px !important;
+          }
+
+          .logo-text span:last-child {
+            font-size: 0.72rem !important;
+            letter-spacing: 1px !important;
+          }
         }
       `}</style>
     </nav>
